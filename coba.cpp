@@ -107,6 +107,7 @@ void tampildatafakultas(Mahasiswa* head) {
     cout << "3. Fakultas Teknik Industri\n";
     cout << "4. Fakultas Pertanian\n";
     cout << "5. Fakultas Ilmu Sosial\n";
+    cout << "6. Kembali ke Menu Utama\n";
     cout << "pilihan :";
         cin>>pilihan;
     switch (pilihan)
@@ -125,6 +126,9 @@ void tampildatafakultas(Mahasiswa* head) {
         break;
     case 5:
         tampildatafisip(head);
+        break;
+    case 6:
+        exit(0);
         break;
     default:
         cout << "pilihan tidak valid\n";
@@ -174,6 +178,7 @@ void tampildatajalurmasuk(Mahasiswa* head) {
     cout << "1. Jalur SNBP\n";
     cout << "2. Jalur SNBT\n";
     cout << "3. Jalur Mandiri\n";
+    cout << "4. Kembali ke Menu Utama\n";
     cout << "pilihan :";
         cin>>pilihan;
     switch (pilihan)
@@ -186,6 +191,9 @@ void tampildatajalurmasuk(Mahasiswa* head) {
         break;
     case 3:
         tampildatamandiri(head);
+        break;
+    case 4:
+        exit(0);
         break;
     default:
         cout << "pilihan tidak valid\n";
@@ -380,6 +388,43 @@ void bacaDariFile(Mahasiswa** head) {
     file.close();
 }
 
+void statistikdata(Mahasiswa* head) {
+    int total = 0;
+    int fti = 0, ftm = 0, feb = 0, fp = 0, fisip = 0;
+    int snbp = 0, snbt = 0, mandiri = 0;
+
+    Mahasiswa* bantu = head;
+    while (bantu != nullptr) {
+        total++;
+        if (bantu->fakultas == "FTI") fti++;
+        else if (bantu->fakultas == "FTM") ftm++;
+        else if (bantu->fakultas == "FEB") feb++;
+        else if (bantu->fakultas == "FP") fp++;
+        else if (bantu->fakultas == "FISIP") fisip++;
+
+        if (bantu->jalurMasuk == "SNBP") snbp++;
+        else if (bantu->jalurMasuk == "SNBT") snbt++;
+        else if (bantu->jalurMasuk == "Mandiri") mandiri++;
+
+        bantu = bantu->next;
+    }
+
+    cout << "\n=== Statistik Data Mahasiswa ===\n";
+    cout << "Total Mahasiswa : " << total << "\n";
+
+    cout << "\nJumlah per Fakultas:\n";
+    cout << "FTI   : " << fti << "\n";
+    cout << "FTM   : " << ftm << "\n";
+    cout << "FEB   : " << feb << "\n";
+    cout << "FP    : " << fp << "\n";
+    cout << "FISIP : " << fisip << "\n";
+
+    cout << "\nJumlah per Jalur Masuk:\n";
+    cout << "- SNBP    : " << snbp << "\n";
+    cout << "- SNBT    : " << snbt << "\n";
+    cout << "- Mandiri : " << mandiri << "\n";
+}
+
 int main() {
     Mahasiswa* head = nullptr;
     int pilihan;
@@ -392,7 +437,8 @@ int main() {
         cout << "2. Tampilkan Data\n";
         cout << "3. Cari Data\n";
         cout << "4. Edit Data\n";
-        cout << "5. Hapus Data\n";
+        cout << "5. Statistik Data\n";
+        cout << "6. Hapus Data\n";
         cout << "0. Keluar\n";
         cout << "Pilihan: ";
         cin >> pilihan;
@@ -403,7 +449,8 @@ int main() {
             case 2: tampilkanData(head); break;
             case 3: cariData(head); break;
             case 4: editData(head); break;
-            case 5: hapusData(&head); break;
+            case 5: statistikdata(head); break;
+            case 6: hapusData(&head); break;
             case 0: simpanKeFile(head); break;
             default: cout << "Pilihan tidak valid!\n";
         }
