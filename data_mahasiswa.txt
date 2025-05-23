@@ -1,0 +1,6 @@
+1,anjay,dasds,sbnd
+2,b,FEB,SNBT
+2,a,FTM,SNBP
+3,c,FTI,Mandiri
+4,d,FP,SNBP
+5,e,FISIP,SNBT
