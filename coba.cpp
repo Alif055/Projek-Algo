@@ -361,17 +361,12 @@ void bacaDariFile(Mahasiswa** head) {
             break;
         }
         
-
         getline(file, baru->nama, ',');
-
         getline(file, baru->fakultas, ',');
-        
-
         getline(file, baru->jalurMasuk);
-        
+
         baru->next = nullptr;
         
-
         if (*head == nullptr || baru->nim < (*head)->nim) {
             baru->next = *head;
             *head = baru;
