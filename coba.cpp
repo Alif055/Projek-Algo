@@ -7,6 +7,7 @@ struct Mahasiswa {
     string nama;
     string fakultas;
     string jalurMasuk;
+    float nilai;
     Mahasiswa* next;
 };
 
@@ -21,7 +22,9 @@ void tambahData(Mahasiswa** head) {
     getline(cin, baru->fakultas);
     cout << "Masukkan Jalur Masuk: ";
     getline(cin, baru->jalurMasuk);
-    
+    cout << "Masukkan Nilai " << baru->jalurMasuk << " : ";
+    cin >> baru->nilai;
+
     baru->next = nullptr;
     
     if (*head == nullptr || baru->nim < (*head)->nim) {
@@ -45,7 +48,7 @@ void tampildataftm(Mahasiswa* head) {
     while (bantu != nullptr) {
         if (bantu->fakultas == "FTM") {
             cout << bantu->nim << "\t" << bantu->nama << "\t"
-                 << bantu->fakultas << "\t" << bantu->jalurMasuk << "\n";
+                 << bantu->fakultas << "\t" << bantu->jalurMasuk << "\t" << bantu->nilai << "\n";
         }
         bantu = bantu->next;
     }
@@ -57,7 +60,7 @@ void tampildatafeb(Mahasiswa* head) {
     while (bantu != nullptr) {
         if (bantu->fakultas == "FEB") {
             cout << bantu->nim << "\t" << bantu->nama << "\t"
-                 << bantu->fakultas << "\t" << bantu->jalurMasuk << "\n";
+                 << bantu->fakultas << "\t" << bantu->jalurMasuk << "\t" << bantu->nilai << "\n";
         }
         bantu = bantu->next;
     }
@@ -69,7 +72,7 @@ void tampildatafti(Mahasiswa* head) {
     while (bantu != nullptr) {
         if (bantu->fakultas == "FTI") {
             cout << bantu->nim << "\t" << bantu->nama << "\t"
-                 << bantu->fakultas << "\t" << bantu->jalurMasuk << "\n";
+                 << bantu->fakultas << "\t" << bantu->jalurMasuk << "\t" << bantu->nilai << "\n";
         }
         bantu = bantu->next;
     }
@@ -81,7 +84,7 @@ void tampildatafp(Mahasiswa* head) {
     while (bantu != nullptr) {
         if (bantu->fakultas == "FP") {
             cout << bantu->nim << "\t" << bantu->nama << "\t"
-                 << bantu->fakultas << "\t" << bantu->jalurMasuk << "\n";
+                 << bantu->fakultas << "\t" << bantu->jalurMasuk << "\t" << bantu->nilai << "\n";
         }
         bantu = bantu->next;
     }
@@ -93,7 +96,7 @@ void tampildatafisip(Mahasiswa* head) {
     while (bantu != nullptr) {
         if (bantu->fakultas == "FISIP") {
             cout << bantu->nim << "\t" << bantu->nama << "\t"
-                 << bantu->fakultas << "\t" << bantu->jalurMasuk << "\n";
+                 << bantu->fakultas << "\t" << bantu->jalurMasuk << "\t" << bantu->nilai << "\n";
         }
         bantu = bantu->next;
     }
@@ -142,7 +145,7 @@ void tampildataSNBP(Mahasiswa* head){
     while (bantu != nullptr) {
         if (bantu->jalurMasuk == "SNBP") {
             cout << bantu->nim << "\t" << bantu->nama << "\t"
-                 << bantu->fakultas << "\t" << bantu->jalurMasuk << "\n";
+                 << bantu->fakultas << "\t" << bantu->jalurMasuk << "\t" << bantu->nilai << "\n";
         }
         bantu = bantu->next;
     }
@@ -154,7 +157,7 @@ void tampildataSNBT(Mahasiswa* head){
     while (bantu != nullptr) {
         if (bantu->jalurMasuk == "SNBT") {
             cout << bantu->nim << "\t" << bantu->nama << "\t"
-                 << bantu->fakultas << "\t" << bantu->jalurMasuk << "\n";
+                 << bantu->fakultas << "\t" << bantu->jalurMasuk << "\t" << bantu->nilai << "\n";
         }
         bantu = bantu->next;
     }
@@ -166,7 +169,7 @@ void tampildatamandiri(Mahasiswa* head){
     while (bantu != nullptr) {
         if (bantu->jalurMasuk == "Mandiri") {
             cout << bantu->nim << "\t" << bantu->nama << "\t"
-                 << bantu->fakultas << "\t" << bantu->jalurMasuk << "\n";
+                 << bantu->fakultas << "\t" << bantu->jalurMasuk << "\t" << bantu->nilai << "\n";
         }
         bantu = bantu->next;
     }
