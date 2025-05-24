@@ -7,9 +7,11 @@ struct Mahasiswa {
     string nama;
     string fakultas;
     string jalurMasuk;
-    float nilai;
+    string nilai;
     Mahasiswa* next;
 };
+
+
 
 void tambahData(Mahasiswa** head) {
     Mahasiswa* baru = new Mahasiswa;
