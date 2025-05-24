@@ -225,6 +225,46 @@ void tampilkanData(Mahasiswa* head) {
     }
 }
 
+
+
+void tampilnilai() {
+    int pilihan;
+    cout << "\n=== Menu Tampilkan Nilai ===\n";
+    cout << "1. Nilai SNBP secara ascending\n";
+    cout << "2. Nilai SNBP secara descending\n";
+    cout << "3. Nilai SNBT secara ascending\n";
+    cout << "4. Nilai SNBT secara descending\n";
+    cout << "5. Nilai Mandiri secara ascending\n";
+    cout << "6. Nilai Mandiri secara descending\n";
+    cout << "0. Keluar\n";
+    cout << "Pilihan: ";
+    cin >> pilihan;
+    switch (pilihan)
+    {
+    case 1:
+        /* code */
+        break;
+    case 2:
+        /* code */
+        break;
+    case 3:
+        /* code */
+        break;
+    case 4:
+        /* code */
+        break;
+    case 5:
+        /* code */
+        break;
+    case 6:
+        /* code */
+        break;
+    default:
+        break;
+    }
+
+}
+
 void cariData(Mahasiswa* head) {
     if (head == nullptr) {
         cout << "\nTidak ada data mahasiswa!\n";
@@ -459,3 +499,4 @@ int main() {
     
     return 0;
 }
+
