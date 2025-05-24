@@ -378,7 +378,11 @@ void simpanKeFile(Mahasiswa* head) {
     
     Mahasiswa* bantu = head;
     while (bantu != nullptr) {
-        file << bantu->nim << "," << bantu->nama << "," << bantu->fakultas << "," << bantu->jalurMasuk << "," << bantu->nilai << "\n";
+        file << bantu->nim << "\n";
+        file << bantu->nama << "\n";
+        file << bantu->fakultas << "\n";
+        file << bantu->jalurMasuk << "\n";
+        file << bantu->nilai << "\n";
         bantu = bantu->next;
     }
     
@@ -392,23 +396,16 @@ void bacaDariFile(Mahasiswa** head) {
         return;
     }
     
-    Mahasiswa* baru;
-    string temp;
-    
     while (true) {
-        baru = new Mahasiswa;
+        Mahasiswa* baru = new Mahasiswa;
         
-        getline(file, baru->nim, ',');
-        if (file.eof()) {
-            delete baru;
-            break;
-        }
-        
-        getline(file, baru->nama, ',');
-        getline(file, baru->fakultas, ',');
-        getline(file, baru->jalurMasuk), ',';
+        if (!getline(file, baru->nim)) break;
+        if (!getline(file, baru->nama)) break;
+        if (!getline(file, baru->fakultas)) break;
+        if (!getline(file, baru->jalurMasuk)) break;
         file >> baru->nilai;
-
+        file.ignore();
+        
         baru->next = nullptr;
         
         if (*head == nullptr || baru->nim < (*head)->nim) {
