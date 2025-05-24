@@ -378,7 +378,7 @@ void simpanKeFile(Mahasiswa* head) {
     
     Mahasiswa* bantu = head;
     while (bantu != nullptr) {
-        file << bantu->nim << "," << bantu->nama << "," << bantu->fakultas << "," << bantu->jalurMasuk << "\n";
+        file << bantu->nim << "," << bantu->nama << "," << bantu->fakultas << "," << bantu->jalurMasuk << "," << bantu->nilai << "\n";
         bantu = bantu->next;
     }
     
@@ -406,7 +406,8 @@ void bacaDariFile(Mahasiswa** head) {
         
         getline(file, baru->nama, ',');
         getline(file, baru->fakultas, ',');
-        getline(file, baru->jalurMasuk);
+        getline(file, baru->jalurMasuk), ',';
+        file >> baru->nilai;
 
         baru->next = nullptr;
         
