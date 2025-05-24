@@ -1,7 +1,8 @@
 #include <iostream>
 #include <fstream>
 using namespace std;
-
+ // cek line 205-207 ul menunya case 4
+ // sm line 136 ul 2 2nya di konsep balik ke main menu
 struct Mahasiswa {
     string nim;
     string nama;
@@ -42,93 +43,95 @@ void tambahData(Mahasiswa** head) {
     cout << "Data berhasil ditambahkan!\n";
 }
 
-void tampildataftm(Mahasiswa* head) {
+void ftm(Mahasiswa* head) {
     cout << "\n=== Data Mahasiswa Fakultas Teknologi Mineral ===\n";
+    cout << "NIM\tNama\tFakultas\tJalur Masuk\tNilai\n";
     Mahasiswa* bantu = head;
     while (bantu != nullptr) {
         if (bantu->fakultas == "FTM") {
-            cout << bantu->nim << "\t" << bantu->nama << "\t"
-                 << bantu->fakultas << "\t" << bantu->jalurMasuk << "\t" << bantu->nilai << "\n";
+            cout << bantu->nim << "\t" << bantu->nama << "\t" << bantu->fakultas << "\t\t " << bantu->jalurMasuk << "\t\t" << bantu->nilai << "\n";
         }
         bantu = bantu->next;
     }
 }
 
-void tampildatafeb(Mahasiswa* head) {
+void feb(Mahasiswa* head) {
     cout << "\n=== Data Mahasiswa Fakultas Ekonomi dan Bisnis ===\n";
+    cout << "NIM\tNama\tFakultas\tJalur Masuk\tNilai\n";
     Mahasiswa* bantu = head;
     while (bantu != nullptr) {
         if (bantu->fakultas == "FEB") {
-            cout << bantu->nim << "\t" << bantu->nama << "\t"
-                 << bantu->fakultas << "\t" << bantu->jalurMasuk << "\t" << bantu->nilai << "\n";
+            cout << bantu->nim << "\t" << bantu->nama << "\t" << bantu->fakultas << "\t\t" << bantu->jalurMasuk << "\t\t" << bantu->nilai << "\n";
         }
         bantu = bantu->next;
     }
 }
 
-void tampildatafti(Mahasiswa* head) {
+void fti(Mahasiswa* head) {
     cout << "\n=== Data Mahasiswa Fakultas Teknik Industri ===\n";
+    cout << "NIM\tNama\tFakultas\tJalur Masuk\tNilai\n";
     Mahasiswa* bantu = head;
     while (bantu != nullptr) {
         if (bantu->fakultas == "FTI") {
-            cout << bantu->nim << "\t" << bantu->nama << "\t"
-                 << bantu->fakultas << "\t" << bantu->jalurMasuk << "\t" << bantu->nilai << "\n";
+            cout << bantu->nim << "\t" << bantu->nama << "\t" << bantu->fakultas << "\t\t" << bantu->jalurMasuk << "\t\t" << bantu->nilai << "\n";
         }
         bantu = bantu->next;
     }
 }
 
-void tampildatafp(Mahasiswa* head) {
+void fp(Mahasiswa* head) {
     cout << "\n=== Data Mahasiswa Fakultas Pertanian ===\n";
+    cout << "NIM\tNama\tFakultas\tJalur Masuk\tNilai\n";
     Mahasiswa* bantu = head;
     while (bantu != nullptr) {
         if (bantu->fakultas == "FP") {
-            cout << bantu->nim << "\t" << bantu->nama << "\t"
-                 << bantu->fakultas << "\t" << bantu->jalurMasuk << "\t" << bantu->nilai << "\n";
+            cout << bantu->nim << "\t" << bantu->nama << "\t" << bantu->fakultas << "\t\t" << bantu->jalurMasuk << "\t\t" << bantu->nilai << "\n";
         }
         bantu = bantu->next;
     }
 }
 
-void tampildatafisip(Mahasiswa* head) {
+void fisip(Mahasiswa* head) {
     cout << "\n=== Data Mahasiswa Fakultas Ilmu Sosial ===\n";
+    cout << "NIM\tNama\tFakultas\tJalur Masuk\tNilai\n";
+
     Mahasiswa* bantu = head;
     while (bantu != nullptr) {
         if (bantu->fakultas == "FISIP") {
-            cout << bantu->nim << "\t" << bantu->nama << "\t"
-                 << bantu->fakultas << "\t" << bantu->jalurMasuk << "\t" << bantu->nilai << "\n";
+            cout << bantu->nim << "\t" << bantu->nama << "\t" << bantu->fakultas << "\t\t" << bantu->jalurMasuk << "\t\t" << bantu->nilai << "\n";
         }
         bantu = bantu->next;
     }
 }
 
-void tampildatafakultas(Mahasiswa* head) {
+void datafakultas(Mahasiswa* head) {
     int pilihan;
-    cout << "\n=== Menu Tampilan Data Fakultas ===\n";
-    cout << "1. Fakultas Teknologi Mineral\n";
-    cout << "2. Fakultas Ekonomi dan Bisnis\n";
-    cout << "3. Fakultas Teknik Industri\n";
-    cout << "4. Fakultas Pertanian\n";
-    cout << "5. Fakultas Ilmu Sosial\n";
-    cout << "6. Kembali ke Menu Utama\n";
-    cout << "pilihan :";
+    cout << "\n_________________________________\n";
+    cout << "|  Menu Tampilan Data Fakultas  |\n";
+    cout << "|1. Fakultas Teknologi Mineral\t|\n";
+    cout << "|2. Fakultas Ekonomi dan Bisnis\t|\n";
+    cout << "|3. Fakultas Teknik Industri\t|\n";
+    cout << "|4. Fakultas Pertanian\t\t|\n";
+    cout << "|5. Fakultas Ilmu Sosial\t|\n";
+    cout << "|6. Kembali ke Menu Utama\t|\n";
+    cout << "\npilihan :";
         cin>>pilihan;
     switch (pilihan)
     {
     case 1:
-        tampildataftm(head);
+        ftm(head);
         break;
     case 2:
-        tampildatafeb(head);
+        feb(head);
         break;
     case 3:
-        tampildatafti(head);
+        fti(head);
         break;
     case 4:
-        tampildatafp(head);
+        fp(head);
         break;
     case 5:
-        tampildatafisip(head);
+        fisip(head);
         break;
     case 6:
         exit(0);
@@ -140,49 +143,53 @@ void tampildatafakultas(Mahasiswa* head) {
 }
 
 void tampildataSNBP(Mahasiswa* head){
-    cout << "\n=== Data Mahasiswa Jalur SNBP ===\n";
+    cout << "\n=================== Data Mahasiswa Jalur SNBP ==================|\n";
+    cout << "NIM\tNama\tFakultas\tJalur Masuk\tNilai SNBP\t|\n";
     Mahasiswa* bantu = head;
     while (bantu != nullptr) {
         if (bantu->jalurMasuk == "SNBP") {
-            cout << bantu->nim << "\t" << bantu->nama << "\t"
-                 << bantu->fakultas << "\t" << bantu->jalurMasuk << "\t" << bantu->nilai << "\n";
+            cout << bantu->nim << "\t" << bantu->nama << "\t"<< bantu->fakultas << "\t\t" << bantu->jalurMasuk << "\t\t" << bantu->nilai <<"\t\t|" << "\n";
         }
         bantu = bantu->next;
-    }
+    } cout << "================================================================|\n";
 }
 
 void tampildataSNBT(Mahasiswa* head){
-    cout << "\n=== Data Mahasiswa Jalur SNBT ===\n";
+    cout << "\n=================== Data Mahasiswa Jalur SNBT ==================|\n";
+    cout << "NIM\tNama\tFakultas\tJalur Masuk\tNilai SNBT\t|\n";
+
     Mahasiswa* bantu = head;
     while (bantu != nullptr) {
         if (bantu->jalurMasuk == "SNBT") {
-            cout << bantu->nim << "\t" << bantu->nama << "\t"
-                 << bantu->fakultas << "\t" << bantu->jalurMasuk << "\t" << bantu->nilai << "\n";
+            cout << bantu->nim << "\t" << bantu->nama << "\t" << bantu->fakultas << "\t\t" << bantu->jalurMasuk << "\t\t" << bantu->nilai <<"\t\t|" << "\n";
         }
         bantu = bantu->next;
-    }
+    } cout << "================================================================|\n";
 }
 
 void tampildatamandiri(Mahasiswa* head){
-    cout << "\n=== Data Mahasiswa Jalur Mandiri ===\n";
+    cout << "\n================== Data Mahasiswa Jalur Mandiri =================|\n";
+    cout << "NIM\tNama\tFakultas\tJalur Masuk\tNilai UM\t|\n";
+
     Mahasiswa* bantu = head;
     while (bantu != nullptr) {
         if (bantu->jalurMasuk == "Mandiri") {
-            cout << bantu->nim << "\t" << bantu->nama << "\t"
-                 << bantu->fakultas << "\t" << bantu->jalurMasuk << "\t" << bantu->nilai << "\n";
+            cout << bantu->nim << "\t" << bantu->nama << "\t" << bantu->fakultas << "\t\t" << bantu->jalurMasuk << "\t\t" << bantu->nilai <<"\t\t |" << "\n";
         }
         bantu = bantu->next;
-    }
+    } cout << "================================================================|\n";
 }
 
-void tampildatajalurmasuk(Mahasiswa* head) {
+void datajalurmasuk(Mahasiswa* head) {
     int pilihan;
-    cout << "\n=== Menu Tampilan Data Jalur Masuk ===\n";
-    cout << "1. Jalur SNBP\n";
-    cout << "2. Jalur SNBT\n";
-    cout << "3. Jalur Mandiri\n";
-    cout << "4. Kembali ke Menu Utama\n";
-    cout << "pilihan :";
+    cout << "_________________________________________\n";
+    cout << "|     Menu Tampilan Data Jalur Masuk    |\n";
+    cout << "|1. Jalur SNBP\t\t\t\t|\n";
+    cout << "|2. Jalur SNBT\t\t\t\t|\n";
+    cout << "|3. Jalur Mandiri\t\t\t|\n";
+    cout << "|4. Kembali ke Menu Utama\t\t|\n";
+    cout << "|_______________________________________|\n";
+    cout << "\npilihan :";
         cin>>pilihan;
     switch (pilihan)
     {
@@ -195,9 +202,9 @@ void tampildatajalurmasuk(Mahasiswa* head) {
     case 3:
         tampildatamandiri(head);
         break;
-    case 4:
-        exit(0);
-        break;
+    case 4:     //benerin sekalian dong ul ini menunya| benerin sekalian dong ul ini menunya
+        exit(0);//benerin sekalian dong ul ini menunya| benerin sekalian dong ul ini menunya
+        break;  //benerin sekalian dong ul ini menunya| benerin sekalian dong ul ini menunya
     default:
         cout << "pilihan tidak valid\n";
         break;
@@ -210,18 +217,20 @@ void tampilkanData(Mahasiswa* head) {
         cout << "\nTidak ada data mahasiswa!\n";
         return;
     }
-    cout << "\n=== Menu Tampilan Data ===\n";
-    cout << "1. Berdasarkan Fakultas\n";
-    cout << "2. Berdasarkan Jalur Masuk\n";
-    cout << "pilihan :";
+    cout << "|------Menu Tampilan Data-------|\n";
+    cout << "|1. Berdasarkan Fakultas\t|\n";
+    cout << "|2. Berdasarkan Jalur Masuk\t|\n";
+    cout << "|-------------------------------|\n";
+
+    cout << "\nPilihan :";
         cin>>pilihan;
     switch (pilihan)
     {
     case 1:
-        tampildatafakultas(head);
+        datafakultas(head);
         break;
     case 2:
-        tampildatajalurmasuk(head);
+        datajalurmasuk(head);
         break;
     default:
         break;
@@ -268,7 +277,7 @@ void tampilnilai() {
 
 }
 
-void cariData(Mahasiswa* head) {
+void cari(Mahasiswa* head) {
     if (head == nullptr) {
         cout << "\nTidak ada data mahasiswa!\n";
         return;
@@ -281,11 +290,12 @@ void cariData(Mahasiswa* head) {
     Mahasiswa* bantu = head;
     while (bantu != nullptr) {
         if (bantu->nim == cari) {
-            cout << "\nData ditemukan:\n";
-            cout << "NIM: " << bantu->nim << "\n";
-            cout << "Nama: " << bantu->nama << "\n";
-            cout << "Fakultas: " << bantu->fakultas << "\n";
-            cout << "Jalur Masuk: " << bantu->jalurMasuk << "\n";
+            cout << "\nData Mahasiswa:\n";
+            cout << "NIM\t\t: " << bantu->nim << "\n";
+            cout << "Nama\t\t: " << bantu->nama << "\n";
+            cout << "Fakultas\t: " << bantu->fakultas << "\n";
+            cout << "Jalur Masuk\t: " << bantu->jalurMasuk << "\n";
+            cout << "Nilai\t\t: " << bantu->nilai << "\n";
             return;
         }
         bantu = bantu->next;
@@ -294,7 +304,7 @@ void cariData(Mahasiswa* head) {
     cout << "\nData tidak ditemukan!\n";
 }
 
-void editData(Mahasiswa* head) {
+void edit(Mahasiswa* head) {
     if (head == nullptr) {
         cout << "\nTidak ada data mahasiswa!\n";
         return;
@@ -308,11 +318,12 @@ void editData(Mahasiswa* head) {
     while (bantu != nullptr) {
         if (bantu->nim == cari) {
             cout << "\nData saat ini:\n";
-            cout << "NIM: " << bantu->nim << "\n";
-            cout << "Nama: " << bantu->nama << "\n";
-            cout << "Fakultas: " << bantu->fakultas << "\n";
-            cout << "Jalur Masuk: " << bantu->jalurMasuk << "\n";
-            
+            cout << "NIM\t\t: " << bantu->nim << "\n";
+            cout << "Nama\t\t: " << bantu->nama << "\n";
+            cout << "Fakultas\t: " << bantu->fakultas << "\n";
+            cout << "Jalur Masuk\t: " << bantu->jalurMasuk << "\n";
+            cout << "Nilai\t\t: " << bantu->nilai << "\n";
+            cout << "_________________________";
             cout << "\nMasukkan data baru:\n";
             cout << "Nama: ";
             getline(cin, bantu->nama);
@@ -320,6 +331,8 @@ void editData(Mahasiswa* head) {
             getline(cin, bantu->fakultas);
             cout << "Jalur Masuk: ";
             getline(cin, bantu->jalurMasuk);
+            cout << "Nilai:";
+            cin >> bantu->nilai;
             
             cout << "Data berhasil diperbarui!\n";
             return;
@@ -330,7 +343,7 @@ void editData(Mahasiswa* head) {
     cout << "\nData tidak ditemukan!\n";
 }
 
-void hapusData(Mahasiswa** head) {
+void dilet(Mahasiswa** head) {
     if (*head == nullptr) {
         cout << "\nTidak ada data mahasiswa!\n";
         return;
@@ -368,7 +381,7 @@ void hapusData(Mahasiswa** head) {
     cout << "Data berhasil dihapus!\n";
 }
 
-void simpanKeFile(Mahasiswa* head) {
+void save(Mahasiswa* head) {
     ofstream file("data_mahasiswa.txt");
     
     if (!file) {
@@ -483,11 +496,11 @@ int main() {
         switch (pilihan) {
             case 1: tambahData(&head); break;
             case 2: tampilkanData(head); break;
-            case 3: cariData(head); break;
-            case 4: editData(head); break;
+            case 3: cari(head); break;
+            case 4: edit(head); break;
             case 5: statistikdata(head); break;
-            case 6: hapusData(&head); break;
-            case 0: simpanKeFile(head); break;
+            case 6: dilet(&head); break;
+            case 0: save(head); break;
             default: cout << "Pilihan tidak valid!\n";
         }
     } while (pilihan != 0);
