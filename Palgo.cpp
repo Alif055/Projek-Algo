@@ -134,7 +134,7 @@ void datafakultas(Mahasiswa* head) {
         fisip(head);
         break;
     case 6:
-        exit(0);
+        cout << "kembali ke menu utama...\n";
         break;
     default:
         cout << "pilihan tidak valid\n";
@@ -202,9 +202,9 @@ void datajalurmasuk(Mahasiswa* head) {
     case 3:
         tampildatamandiri(head);
         break;
-    case 4:     //benerin sekalian dong ul ini menunya| benerin sekalian dong ul ini menunya
-        exit(0);//benerin sekalian dong ul ini menunya| benerin sekalian dong ul ini menunya
-        break;  //benerin sekalian dong ul ini menunya| benerin sekalian dong ul ini menunya
+    case 4:   
+        cout << "kembali ke menu utama...\n";
+        break;  
     default:
         cout << "pilihan tidak valid\n";
         break;
@@ -237,9 +237,62 @@ void tampilkanData(Mahasiswa* head) {
     }
 }
 
+void quickSortMahasiswa(Mahasiswa* arr[], int awal, int akhir, bool ascending) {
+    int low = awal, high = akhir;
+    float pivot = arr[(awal + akhir) / 2]->nilai;
+
+    do {
+        if (ascending) {
+            while (arr[low]->nilai < pivot) low++;
+            while (arr[high]->nilai > pivot) high--;
+        } else {
+            while (arr[low]->nilai > pivot) low++;
+            while (arr[high]->nilai < pivot) high--;
+        }
+
+        if (low <= high) {
+            swap(arr[low], arr[high]);
+            low++;
+            high--;
+        }
+    } while (low <= high);
+
+    if (awal < high)
+        quickSortMahasiswa(arr, awal, high, ascending);
+    if (low < akhir)
+        quickSortMahasiswa(arr, low, akhir, ascending);
+}
 
 
-void tampilnilai() {
+void tampilkanUrutNilai(Mahasiswa* head, string jalur, bool ascending) {
+    Mahasiswa* arr[100];
+    int n = 0;
+    Mahasiswa* bantu = head;
+
+    while (bantu != nullptr) {
+        if (bantu->jalurMasuk == jalur) {
+            arr[n++] = bantu;
+        }
+        bantu = bantu->next;
+    }
+
+    if (n == 0) {
+        cout << "Tidak ada data mahasiswa untuk jalur " << jalur << ".\n";
+        return;
+    }
+
+    quickSortMahasiswa(arr, 0, n - 1, ascending);
+
+    cout << "\nNIM\tNama\tFakultas\tJalur Masuk\tNilai\n";
+    for (int i = 0; i < n; ++i) {
+        cout << arr[i]->nim << "\t" << arr[i]->nama << "\t" << arr[i]->fakultas
+             << "\t\t" << arr[i]->jalurMasuk << "\t\t" << arr[i]->nilai << "\n";
+    }
+}
+
+
+
+void tampilnilai(Mahasiswa* head) {
     int pilihan;
     cout << "\n=== Menu Tampilkan Nilai ===\n";
     cout << "1. Nilai SNBP secara ascending\n";
@@ -248,30 +301,31 @@ void tampilnilai() {
     cout << "4. Nilai SNBT secara descending\n";
     cout << "5. Nilai Mandiri secara ascending\n";
     cout << "6. Nilai Mandiri secara descending\n";
-    cout << "0. Keluar\n";
+    cout << "0. kembali ke menu utama...\n";
     cout << "Pilihan: ";
     cin >> pilihan;
     switch (pilihan)
     {
     case 1:
-        /* code */
+        tampilkanUrutNilai(head, "SNBP", true);
         break;
     case 2:
-        /* code */
+        tampilkanUrutNilai(head, "SNBP", false);
         break;
     case 3:
-        /* code */
+        tampilkanUrutNilai(head, "SNBT", true);
         break;
     case 4:
-        /* code */
+        tampilkanUrutNilai(head, "SNBT", false);
         break;
     case 5:
-        /* code */
+        tampilkanUrutNilai(head, "Mandiri", true);
         break;
     case 6:
-        /* code */
+        tampilkanUrutNilai(head, "Mandiri", false);
         break;
     default:
+        cout << "pilihan tidak valid\n";
         break;
     }
 
@@ -486,21 +540,39 @@ int main() {
         cout << "2. Tampilkan Data\n";
         cout << "3. Cari Data\n";
         cout << "4. Edit Data\n";
-        cout << "5. Statistik Data\n";
-        cout << "6. Hapus Data\n";
+        cout << "5. Sorting Nilai\n";
+        cout << "6. Statistik Data\n";
+        cout << "7. Hapus Data\n";
         cout << "0. Keluar\n";
         cout << "Pilihan: ";
         cin >> pilihan;
         cin.ignore();
         
         switch (pilihan) {
-            case 1: tambahData(&head); break;
-            case 2: tampilkanData(head); break;
-            case 3: cari(head); break;
-            case 4: edit(head); break;
-            case 5: statistikdata(head); break;
-            case 6: dilet(&head); break;
-            case 0: save(head); break;
+            case 1: 
+                tambahData(&head); 
+                break;
+            case 2: 
+                tampilkanData(head); 
+                break;
+            case 3:    
+                cari(head); 
+                break;
+            case 4: 
+                edit(head); 
+                break;
+            case 5: 
+                tampilnilai(head);
+                break;
+            case 6: 
+                statistikdata(head); 
+                break;
+            case 7: 
+                dilet(&head); 
+                break;
+            case 0: 
+                save(head); 
+                break;
             default: cout << "Pilihan tidak valid!\n";
         }
     } while (pilihan != 0);
