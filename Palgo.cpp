@@ -268,6 +268,7 @@ void tampilnilai(Mahasiswa* head) {
 
 void carinim(Mahasiswa* head) {
     string cari;
+    cin.ignore();
     cout << "\nMasukkan NIM yang dicari: ";
     getline(cin, cari);
     
@@ -290,6 +291,7 @@ void carinim(Mahasiswa* head) {
 
 void carinama(Mahasiswa* head) {
     string cari;
+    cin.ignore();
     cout << "\nMasukkan nama yang dicari: ";
     getline(cin, cari);
     
