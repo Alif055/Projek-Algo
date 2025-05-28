@@ -3,6 +3,11 @@ d
 FTI
 SNBT
 345
+1
+Anjay
+FTM
+Mandiri
+89.8
 2
 w
 FTI
@@ -13,3 +18,8 @@ f
 FTI
 SNBT
 420
+6
+Alip 
+FEB
+SNBP
+89
