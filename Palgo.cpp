@@ -211,7 +211,9 @@ void tampilkanUrutNilai(Mahasiswa* head, string jalur, bool ascending) {
 
     quickSortMahasiswa(arr, 0, n - 1, ascending);
 
-    cout << "\nNIM\tNama\tFakultas\tJalur Masuk\tNilai\n";
+    cout << "\n=======================================================\n";
+    cout << "NIM\tNama\tFakultas\tJalur Masuk\tNilai\n";
+    cout << "=======================================================\n";
     for (int i = 0; i < n; ++i) {
         cout << arr[i]->nim << "\t" << arr[i]->nama << "\t" << arr[i]->fakultas
              << "\t\t" << arr[i]->jalurMasuk << "\t\t" << arr[i]->nilai << "\n";
@@ -497,8 +499,10 @@ void statistikdata(Mahasiswa* head) {
         bantu = bantu->next;
     }
 
-    cout << "\n=== Statistik Data Mahasiswa ===\n";
-    cout << "Total Mahasiswa : " << total << "\n";
+    cout << "\n========================================\n";
+    cout << "======= Statistik Data Mahasiswa =======\n";
+    cout << "========================================\n";
+    cout << "\nTotal Mahasiswa : " << total << "\n";
 
     cout << "\nJumlah per Fakultas:\n";
     cout << "FTI   : " << fti << "\n";
@@ -520,7 +524,9 @@ int main() {
     bacaDariFile(&head);
     
     do {
-        cout << "\n=== Menu Utama ===\n";
+        cout << "\n========================================\n";
+        cout << "=== Sistem Penerimaan Mahasiswa Baru ===\n";
+        cout << "========================================\n";
         cout << "1. Tambah Data\n";
         cout << "2. Tampilkan Data\n";
         cout << "3. Cari Data\n";
