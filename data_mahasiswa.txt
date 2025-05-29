@@ -8,6 +8,11 @@ Anjay
 FTM
 Mandiri
 89.8
+10
+Rami anjay
+FEB
+SNBP
+87
 2
 w
 FTI
@@ -23,3 +28,8 @@ Alip
 FEB
 SNBP
 89
+8
+ajds
+FTM
+Mandiri
+87
